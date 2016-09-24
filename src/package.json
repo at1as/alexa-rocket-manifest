@@ -1,0 +1,21 @@
+{
+  "name": "skill-launch-manifest",
+  "version": "1.0.0",
+  "description": "Details about upcoming rocket launches",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "alexa",
+    "skill",
+    "space"
+  ],
+  "author": "Jason Willems",
+  "license": "MIT",
+  "dependencies": {
+    "alexa-sdk": "^1.0.0",
+    "request": "^2.75.0",
+    "then-request": "^2.2.0"
+  }
+}

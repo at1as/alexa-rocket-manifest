@@ -1,0 +1,12 @@
+GetNextLaunch when the next launch is
+GetNextLaunch when is the next launch
+GetNextLaunch when are the next {launchNum} launches
+GetNextLaunch when's the next launch
+GetNextLaunch when's the next {launchNum} launches
+GetNextLaunch what's next
+GetNextLaunch what are the next {launchNum} launches
+GetNextLaunch what is next
+GetNextLaunch for the next launch
+GetNextLaunch for the next {launchNum} launches
+GetNextLaunch for next launch
+GetNextLaunch for next {launchNum} launches
