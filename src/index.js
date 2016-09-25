@@ -65,7 +65,7 @@ LaunchManifest.prototype.intentHandlers = {
 
             var launch_name = launch_info.name ? launch_info.name.split('|')[1].replace('&', 'and') : null;
             var confirmed   = (launch_info.tbddate !== 1 && launch_info.tbdtime !== 1) ? true : false;
-            var launch_date = (launch_info.net !== '') ? launch_info.net.replace('UTC', 'U.T.C') : null;
+            var launch_date = (launch_info.net !== '') ? launch_info.net.replace('UTC', 'U.T.C.') : null;
 
             if (launch_name) {
               if (i == 0) {
