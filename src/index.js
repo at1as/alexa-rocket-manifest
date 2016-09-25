@@ -19,6 +19,24 @@ var LaunchManifest = function () {
 LaunchManifest.prototype = Object.create(AlexaSkill.prototype);
 LaunchManifest.prototype.constructor = LaunchManifest;
 
+LaunchManifest.prototype.eventHandlers.onSessionStarted = function (sessionStartedRequest, session) {
+    console.log('LaunchManifest onSessionStarted requestId: ' + sessionStartedRequest.requestId
+        + ', sessionId: ' + session.sessionId);
+};
+
+LaunchManifest.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
+    console.log('LaunchManifest onLaunch requestId: ' + launchRequest.requestId + ', sessionId: ' + session.sessionId);
+    var speechOutput = 'Welcome to Rocket Manifest. Ask me for the next scheduled launch';
+    var repromptText = 'You can what\'s next!';
+    response.ask(speechOutput, repromptText);
+};
+
+LaunchManifest.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
+    console.log('LaunchManifest onSessionEnded requestId: ' + sessionEndedRequest.requestId
+        + ', sessionId: ' + session.sessionId);
+};
+
+
 var request_headers = {
   'User-Agent': USER_AGENT,
   'Accept':     'application/json'
@@ -33,7 +51,7 @@ LaunchManifest.prototype.intentHandlers = {
     if (intent.slots.launchNum.value){
       launch_count = (intent.slots.launchNum.value <= 10) ? intent.slots.launchNum.value : 10;
     }
-    console.log("Launch count is " + launch_count); /* DEBUG */
+    console.log('Launch count is ' + launch_count); /* DEBUG */
 
     makeRequest('launch?next=' + launch_count, function cb(err, data) {
         console.log(data); /* DEBUG */
