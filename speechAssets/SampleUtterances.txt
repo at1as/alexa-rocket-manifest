@@ -7,6 +7,30 @@ GetNextLaunch what's next
 GetNextLaunch what are the next {launchNum} launches
 GetNextLaunch what is next
 GetNextLaunch for the next launch
+GetNextLaunch about the next launch
+GetNextLaunch get the next launch
+GetNextLaunch get me the next launch
+GetNextLaunch find the next launch
+GetNextLaunch find me the next launch
+GetNextLaunch tell me the next launch
 GetNextLaunch for the next {launchNum} launches
+GetNextLaunch about the next {launchNum} launch
+GetNextLaunch get the next {launchNum} launch
+GetNextLaunch get me the next {launchNum} launch
+GetNextLaunch find the next {launchNum} launch
+GetNextLaunch find me the next {launchNum} launch
+GetNextLaunch tell me the next {launchNum} launch
 GetNextLaunch for next launch
 GetNextLaunch for next {launchNum} launches
+GetNextLaunch what's upcoming
+GetNextLaunch what's coming up
+GetNextLaunch what's happening
+GetNextLaunch what is upcoming
+GetNextLaunch what is coming up
+GetNextLaunch what is happening
+GetNextLaunch what rocket is launching next
+GetNextLaunch what rocket's launching next
+GetNextLaunch what launch is happening next
+GetNextLaunch what launches are happening next
+GetNextLaunch what the next {launchNum} launches are
+GetNextLaunch what the next {launchNum} launches will be
