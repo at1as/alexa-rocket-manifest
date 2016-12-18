@@ -27,7 +27,7 @@ LaunchManifest.prototype.eventHandlers.onSessionStarted = function (sessionStart
 LaunchManifest.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     console.log('LaunchManifest onLaunch requestId: ' + launchRequest.requestId + ', sessionId: ' + session.sessionId);
     var speechOutput = 'Welcome to Rocket Manifest. Ask me for the next scheduled launch';
-    var repromptText = 'You can what\'s next!';
+    var repromptText = 'You can ask what\'s next!';
     response.ask(speechOutput, repromptText);
 };
 
@@ -53,7 +53,7 @@ LaunchManifest.prototype.intentHandlers = {
     }
     console.log('Launch count is ' + launch_count); /* DEBUG */
 
-    makeRequest('launch?next=' + launch_count, function cb(err, data) {
+    makeRequest('launch?next=' + launch_count + '&mode=verbose', function cb(err, data) {
         console.log(data); /* DEBUG */
 
         var speech_output = '';
@@ -66,6 +66,7 @@ LaunchManifest.prototype.intentHandlers = {
             var launch_name = launch_info.name ? launch_info.name.split('|')[1].replace('&', 'and') : null;
             var confirmed   = (launch_info.tbddate !== 1 && launch_info.tbdtime !== 1) ? true : false;
             var launch_date = (launch_info.net !== '') ? launch_info.net.replace('UTC', 'U.T.C.') : null;
+            var launch_loc  = (launch_info.location.name !== '') ? launch_info.location.name : null;
 
             if (launch_name) {
               if (i == 0) {
@@ -73,17 +74,20 @@ LaunchManifest.prototype.intentHandlers = {
               } else {
                 speech_output += 'The following launch is ' + launch_name
               }
+              if (launch_loc){
+                speech_output += ' launching from ' + launch_loc;
+              }
               if (launch_date){
                 if (confirmed){
-                  speech_output += ' which is confirmed for ' + launch_date;
+                  speech_output += ' which is confirmed for ' + launch_date + '. '; 
                 } else {
-                  speech_output += ' which is tentatively set for ' + launch_date;
+                  speech_output += ' which is tentatively set for ' + launch_date + '. ';
                 }
               }
               speech_output += '. ';
               returned_launch_count += 1;
             } else {
-              response.tellWithCard('There are no launches currently scheduled.');
+              response.tell('There are no launches currently scheduled.');
             }
           } catch(err) {
             console.log('Error getting launch data');
@@ -93,7 +97,7 @@ LaunchManifest.prototype.intentHandlers = {
         if (returned_launch_count !== 1) {
           speech_output = 'Here\'s your forcast for the next ' + returned_launch_count + ' launches. ' + speech_output;
         }
-        response.tellWithCard(speech_output);
+        response.tell(speech_output);
     });
   },
 
@@ -125,4 +129,4 @@ exports.handler = function (event, context) {
     // Create an instance of the LaunchManifest skill.
     var launchManifest = new LaunchManifest();
     launchManifest.execute(event, context);
-};
+}
