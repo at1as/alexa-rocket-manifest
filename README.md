@@ -35,7 +35,7 @@ Uses [Launch Library API v1.2](https://www.launchlibrary.net/1.2/docs/api.html) 
 
 ### To Update Skill:
 
-Zip contents of /src directory (node_modules, index.js and AlexaSkill.js) into one file (Archive.zip) and upload to [Amazon Lambda](https://console.aws.amazon.com/lambda/home?region=us-east-1).
+Zip contents of /src directory along with the node_modules directory itself (node_modules/, index.js file and AlexaSkill.js file all at at the same folder level) into one zip file (Archive.zip) and upload to [Amazon Lambda](https://console.aws.amazon.com/lambda/home?region=us-east-1).
 
 
 ### To Monitor:
